@@ -8,12 +8,17 @@ info (
 )
 
 //做测试
+type ChoiceItem {
+	Number int64  `json:"number"`
+	Data   string `json:"data"`
+}
 type TestReq {
-	Authorization string   `header:"Authorization"`
-	Choice        []string `json:"choice"`
+	Authorization string       `header:"Authorization"`
+	Choice        []ChoiceItem `json:"choice"`
 }
 type TestResp {
-	Flag bool `json:"flag"`
+	Flag   bool   `json:"flag"`
+	UserID string `json:"user_id"`
 }
 
 //查看测试结果
