@@ -154,7 +154,7 @@
         "choice": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/ChoiceItem"
           }
         }
       },

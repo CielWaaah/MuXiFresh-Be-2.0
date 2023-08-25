@@ -43,6 +43,11 @@ func (l *CheckTestResultLogic) CheckTestResult(req *types.TestInfoReq) (resp *ty
 
 	form, err := l.svcCtx.FormClient.FindOne(l.ctx, formid.String()[10:34])
 
+	typesChoice := make([]types.ChoiceItem, len(userInfo.TestChoice))
+	for i, item := range userInfo.TestChoice {
+		typesChoice[i] = types.ChoiceItem(item)
+	}s
+
 	return &types.TestInfoResp{
 		Name:        form.Name,
 		Gender:      form.Gender,
@@ -55,6 +60,6 @@ func (l *CheckTestResultLogic) CheckTestResult(req *types.TestInfoReq) (resp *ty
 		JiaoJiXing:  userInfo.TestResult.JiaoJiXing,
 		HuaiYiXing:  userInfo.TestResult.HuaiYiXing,
 		WenDingXing: userInfo.TestResult.WenDingXing,
-		Choice:      userInfo.TestChoice,
+		Choice:      typesChoice,
 	}, nil
 }
